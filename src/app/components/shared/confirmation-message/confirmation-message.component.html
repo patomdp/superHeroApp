@@ -1,1 +1,8 @@
-<p>confirmation-message works!</p>
+<h1 mat-dialog-title>Borrar Héroe</h1>
+<div mat-dialog-content>
+  <p>{{mensaje}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="btn" cdkFocusInitial>Aceptar</button>
+</div>

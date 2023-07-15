@@ -11,6 +11,7 @@ import { ListHeroesComponent } from './components/list-heroes/list-heroes.compon
 import { ConfirmationMessageComponent } from './components/shared/confirmation-message/confirmation-message.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AngularMaterialModule } from './components/shared/angular-material/angular-material.module';
+import { HeroCardComponent } from './components/hero-card/hero-card.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AngularMaterialModule } from './components/shared/angular-material/angu
     AddEditHeroComponent,
     ListHeroesComponent,
     ConfirmationMessageComponent,
-    NavbarComponent
+    NavbarComponent,
+    HeroCardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,45 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Ant-Man', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Aquaman', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Asterix', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'The Atom', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'The Avengers', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Batgirl', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Batman', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Batwoman', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Black Canary', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Black Panther', weight: 20.1797, symbol: 'Ne'},
-];
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { Hero } from 'src/app/models/hero';
+import { HeroesService } from 'src/app/services/heroes.service';
+import { ConfirmationMessageComponent } from '../shared/confirmation-message/confirmation-message.component';
 
 @Component({
   selector: 'app-list-heroes',
   templateUrl: './list-heroes.component.html',
   styleUrls: ['./list-heroes.component.css']
 })
-export class ListHeroesComponent implements OnInit {
+export class ListHeroesComponent implements AfterViewInit  {
 
-  constructor() { }
+  public displayedColumns: string[] = ['position', 'name', 'race', 'gender', 'action'];
+  public dataSource = new MatTableDataSource<Hero>();
+  public heroList: Hero[];
 
-  ngOnInit(): void {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  constructor(private heroService: HeroesService, private dialog: MatDialog){}
+
+  ngAfterViewInit (): void {
+    //Inicia la carga de heroes
+    this.loadHeros();
   }
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   public applyFilter(event: Event): void{
     // recibe cada una de las teclas
     const filterValue = (event.target as HTMLInputElement).value;
     // le hace un lowerCase y las filtra en el Data Source
     this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
+  }
+
+  public loadHeros(){
+    this.heroList = this.heroService.getHeroes();
+    console.log('Lista de heroList: ', this.heroList);
+    this.dataSource = new MatTableDataSource(this.heroList);
+    // inicializan el sort y paginacion
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
+  public deleteHero(index:number):void{
+    const dialogRef= this.dialog.open(ConfirmationMessageComponent, {
+      width: '350px',
+      data: {mensaje: '¿Estas seguro que deseas eliminar el héroe?'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === 'aceptar'){
+        this.heroService.deleteHero(index);
+        this.loadHeros();
+      }
+    });
   }
 
 }

@@ -1,10 +1,32 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 table {
     width: 100%;
 }
 
-mat-form-field{
+mat-form-field {
     font-size: 1em;
     display: flex;
     justify-content: center;
     margin: 0.5em;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    filter: brightness(50%);
+}
+
+.delete {
+    color: #E15639;
+}
+
+.edit {
+    color: #1878B0;
+}
+
