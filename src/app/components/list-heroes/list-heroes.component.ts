@@ -6,6 +6,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Hero } from 'src/app/models/hero';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { ConfirmationMessageComponent } from '../shared/confirmation-message/confirmation-message.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-list-heroes',
@@ -20,7 +21,11 @@ export class ListHeroesComponent implements AfterViewInit  {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private heroService: HeroesService, private dialog: MatDialog){}
+  constructor(
+    private heroService: HeroesService, 
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
+    ){}
 
   ngAfterViewInit (): void {
     //Inicia la carga de heroes
@@ -35,7 +40,7 @@ export class ListHeroesComponent implements AfterViewInit  {
   }
 
   public loadHeros(){
-    this.heroList = this.heroService.getHeroes();
+    this.heroList = this.heroService.getAllHeroes();
     console.log('Lista de heroList: ', this.heroList);
     this.dataSource = new MatTableDataSource(this.heroList);
     // inicializan el sort y paginacion
@@ -53,6 +58,10 @@ export class ListHeroesComponent implements AfterViewInit  {
       if(result === 'aceptar'){
         this.heroService.deleteHero(index);
         this.loadHeros();
+        // mensaje al eliminar el Heroe
+        this.snackBar.open('Heroe eliminado con éxito', '', {
+          duration: 3000
+        });
       }
     });
   }

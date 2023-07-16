@@ -5,3 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-paginator-container{
     justify-content: center !important;
 }
+simple-snack-bar span {
+    margin: auto;
+    text-align: center;
+}
