@@ -191,8 +191,14 @@ export class HeroesService {
 
   constructor() { }
 
-  public getHeroes(): Hero[]{
+  public getAllHeroes(): Hero[]{
     return this.listHeroes.slice();
+  }
+
+  public getOneHeroe(name:string){
+    // filtrar toda la lista buscando una coincidencia
+    // devolver ese heroe
+    //return this.listHeroes[index]
   }
 
   public deleteHero(index:number){

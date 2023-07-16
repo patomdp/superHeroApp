@@ -1,1 +1,46 @@
-<p>add-edit-hero works!</p>
+<div class="container">
+
+    <div class="form-group">
+
+        <h3>Formulario</h3>
+
+        <form action="">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Agregar nombre">
+                    <mat-icon matSuffix>badge</mat-icon>
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </p>
+            <mat-form-field appearance="outline">
+                <mat-label>Género</mat-label>
+                <mat-icon matSuffix>transgender</mat-icon>
+                <mat-select>
+                    <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                        {{gender.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Raza</mat-label>
+                    <input matInput placeholder="Agregar raza">
+                    <mat-icon matSuffix>groups_3</mat-icon>
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </p>
+        </form>
+
+
+
+    </div>
+    <img src="../../../assets/img/new-hero.jpeg" alt="new hero image" width="40%" height="40%">
+
+</div>
+
+
+<div class="example-button-row">
+    <button mat-raised-button type="button" routerLink="/">Cancelar</button>
+    <button mat-raised-button color="primary" type="button">Aceptar</button>
+</div>
