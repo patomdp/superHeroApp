@@ -25,6 +25,7 @@ export class AddEditHeroComponent implements OnInit {
   public myForm: FormGroup;
   public idHero: any;
   public action = 'Crear'
+  public imgSrc = '../../../assets/img/new-hero.jpeg'
   constructor(
     private fb: FormBuilder,
     private heroeService: HeroesService,
@@ -44,8 +45,10 @@ export class AddEditHeroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //esta editando
     if (this.idHero !== undefined) {
       this.action = 'Editar'
+      this.imgSrc= "../../../assets/img/new-hero-2.jpeg"
       this.isEditHero();
     }
   }
