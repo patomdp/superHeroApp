@@ -8,7 +8,7 @@
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre<strong class="mda-form-msg"> *</strong></mat-label>
-                    <input matInput formControlName="nombreCompleto" placeholder="Agregar nombre">
+                    <input matInput formControlName="nombreCompleto" placeholder="Agregar nombre" class="toUppercase" >
                     <mat-icon matSuffix>badge</mat-icon>
                     <mat-hint
                         *ngIf="myForm.get('nombreCompleto')?.hasError('required') && myForm.get('nombreCompleto')?.touched"
@@ -38,7 +38,7 @@
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Raza<strong class="mda-form-msg"> *</strong></mat-label>
-                    <input matInput formControlName="raza" placeholder="Agregar raza">
+                    <input matInput formControlName="raza" class="toUppercase" placeholder="Agregar raza">
                     <mat-icon matSuffix>groups_3</mat-icon>
 
                     <mat-hint *ngIf="myForm.get('raza')?.hasError('required') && myForm.get('raza')?.touched"
@@ -50,7 +50,7 @@
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Color de ojos<strong class="mda-form-msg"> *</strong></mat-label>
-                    <input matInput formControlName="colorOjos" placeholder="Agregar raza">
+                    <input matInput formControlName="colorOjos" class="toUppercase" placeholder="Agregar raza">
                     <mat-icon matSuffix>visibility</mat-icon>
                     <mat-hint *ngIf="myForm.get('colorOjos')?.hasError('required') && myForm.get('colorOjos')?.touched"
                         class="mda-form-msg">
@@ -61,7 +61,7 @@
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Color de pelo<strong class="mda-form-msg"> *</strong></mat-label>
-                    <input matInput formControlName="colorPelo" placeholder="Agregar raza">
+                    <input matInput formControlName="colorPelo" class="toUppercase" placeholder="Agregar raza">
                     <mat-icon matSuffix>face_5</mat-icon>
                     <mat-hint *ngIf="myForm.get('colorPelo')?.hasError('required') && myForm.get('colorPelo')?.touched"
                         class="mda-form-msg">

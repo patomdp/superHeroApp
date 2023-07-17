@@ -15,3 +15,7 @@
     align-self: center;
     border-radius: 1em;
 }
+
+.toUppercase{
+    text-transform: capitalize;
+}
