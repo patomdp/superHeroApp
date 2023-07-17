@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --red: #f44336; 
+    --green: #4CAF50;
+    --blue: #1878B0;
+}
+  
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -9,3 +15,37 @@ simple-snack-bar span {
     margin: auto;
     text-align: center;
 }
+
+.mda-form-msg{
+    color: var(--red);
+}
+
+.mat-snack-bar-container{
+    background-color: var(--green);
+    color: black;
+}
+
+table {
+    width: 100%;
+}
+
+mat-form-field {
+    font-size: 1em;
+}
+
+.delete {
+    color: var(--red);
+}
+
+.edit {
+    color: var(--blue);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    filter: brightness(50%);
+}
+

@@ -3,27 +3,12 @@
     justify-content: space-between;
 }
 
-table {
-    width: 100%;
+.list-heroes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    max-width: 40vw;
+    margin: auto;
+    margin-top: 1em;
 }
-
-mat-form-field {
-    font-size: 1em;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-.pointer:hover {
-    filter: brightness(50%);
-}
-
-.delete {
-    color: #E15639;
-}
-
-.edit {
-    color: #1878B0;
-}
-

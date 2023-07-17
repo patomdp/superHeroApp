@@ -2,14 +2,14 @@ export class Hero {
     id?: number;
     name: string;
     url?: string;
-    appearance?: {
+    appearance: {
         gender: string,
         race: string,
-        height: [
+        height?: [
             string,
             string
         ],
-        weight: [
+        weight?: [
             string, 
             string
         ],

@@ -194,14 +194,24 @@ export class HeroesService {
   public getAllHeroes(): Hero[]{
     return this.listHeroes.slice();
   }
-
-  public getOneHeroe(name:string){
-    // filtrar toda la lista buscando una coincidencia
-    // devolver ese heroe
-    //return this.listHeroes[index]
+  public getHero(index:number):Hero{
+    return this.listHeroes[index]
   }
 
   public deleteHero(index:number){
     this.listHeroes.splice(index,1);
   }
+
+  public addHero(heroe:Hero){
+    this.listHeroes.unshift(heroe);
+  }
+
+  public editHero(hero:Hero, idHero:number){
+    this.listHeroes[idHero].name = hero.name;
+    this.listHeroes[idHero].appearance.gender = hero.appearance.gender;
+    this.listHeroes[idHero].appearance.race = hero.appearance.race;
+    this.listHeroes[idHero].eyeColor = hero.eyeColor;
+    this.listHeroes[idHero].hairColor = hero.hairColor;
+  }
+
 }

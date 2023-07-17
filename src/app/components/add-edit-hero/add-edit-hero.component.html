@@ -1,46 +1,84 @@
-<div class="container">
-
+<div class="edit-heroes-container">
+    
     <div class="form-group">
+        
+        <h2>{{ action }} Héroe</h2>
 
-        <h3>Formulario</h3>
-
-        <form action="">
-            <p>
+        <form action="" [formGroup]="myForm" autocomplete="off">
+            <div>
                 <mat-form-field appearance="outline">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput placeholder="Agregar nombre">
+                    <mat-label>Nombre<strong class="mda-form-msg"> *</strong></mat-label>
+                    <input matInput formControlName="nombreCompleto" placeholder="Agregar nombre">
                     <mat-icon matSuffix>badge</mat-icon>
-                    <mat-hint>Hint</mat-hint>
+                    <mat-hint
+                        *ngIf="myForm.get('nombreCompleto')?.hasError('required') && myForm.get('nombreCompleto')?.touched"
+                        class="mda-form-msg">
+                        Este campo <strong>es requerido</strong>
+                    </mat-hint>
+                    <mat-hint
+                        *ngIf="myForm.get('nombreCompleto')?.hasError('maxlength') && myForm.get('nombreCompleto')?.touched"
+                        class="mda-form-msg">
+                        Máximo<strong> 20 caracteres</strong>
+                    </mat-hint>
                 </mat-form-field>
-            </p>
+            </div>
             <mat-form-field appearance="outline">
-                <mat-label>Género</mat-label>
+                <mat-label>Género<strong class="mda-form-msg"> *</strong></mat-label>
                 <mat-icon matSuffix>transgender</mat-icon>
-                <mat-select>
+                <mat-hint *ngIf="myForm.get('genero')?.hasError('required') && myForm.get('genero')?.touched"
+                    class="mda-form-msg">
+                    Este campo <strong>es requerido</strong>
+                </mat-hint>
+                <mat-select formControlName="genero">
                     <mat-option *ngFor="let gender of genders" [value]="gender.value">
                         {{gender.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-            <p>
+            <div>
                 <mat-form-field appearance="outline">
-                    <mat-label>Raza</mat-label>
-                    <input matInput placeholder="Agregar raza">
+                    <mat-label>Raza<strong class="mda-form-msg"> *</strong></mat-label>
+                    <input matInput formControlName="raza" placeholder="Agregar raza">
                     <mat-icon matSuffix>groups_3</mat-icon>
-                    <mat-hint>Hint</mat-hint>
+
+                    <mat-hint *ngIf="myForm.get('raza')?.hasError('required') && myForm.get('raza')?.touched"
+                        class="mda-form-msg">
+                        Este campo <strong>es requerido</strong>
+                    </mat-hint>
                 </mat-form-field>
-            </p>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Color de ojos<strong class="mda-form-msg"> *</strong></mat-label>
+                    <input matInput formControlName="colorOjos" placeholder="Agregar raza">
+                    <mat-icon matSuffix>visibility</mat-icon>
+                    <mat-hint *ngIf="myForm.get('colorOjos')?.hasError('required') && myForm.get('colorOjos')?.touched"
+                        class="mda-form-msg">
+                        Este campo <strong>es requerido</strong>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Color de pelo<strong class="mda-form-msg"> *</strong></mat-label>
+                    <input matInput formControlName="colorPelo" placeholder="Agregar raza">
+                    <mat-icon matSuffix>face_5</mat-icon>
+                    <mat-hint *ngIf="myForm.get('colorPelo')?.hasError('required') && myForm.get('colorPelo')?.touched"
+                        class="mda-form-msg">
+                        Este campo <strong>es requerido</strong>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
         </form>
-
-
-
+        <!-- <pre> {{ myForm.value | json }} </pre> -->
+        <div class="button-row">
+            <button mat-raised-button type="button" routerLink="/">Cancelar</button>
+            <button mat-raised-button color="primary" type="button" (click)="saveHero()"
+                [disabled]="myForm.invalid">Aceptar</button>
+        </div>
     </div>
-    <img src="../../../assets/img/new-hero.jpeg" alt="new hero image" width="40%" height="40%">
+   
+        <img class="img-hero" src="../../../assets/img/new-hero.jpeg" alt="new hero image">   
+    
 
-</div>
-
-
-<div class="example-button-row">
-    <button mat-raised-button type="button" routerLink="/">Cancelar</button>
-    <button mat-raised-button color="primary" type="button">Aceptar</button>
 </div>
