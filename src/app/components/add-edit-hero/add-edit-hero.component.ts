@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hero } from 'src/app/models/hero';
@@ -22,12 +22,12 @@ export class AddEditHeroComponent implements OnInit {
     { value: 'Female', viewValue: 'Female' },
     { value: 'Other', viewValue: 'Other' },
   ];
-  public myForm: FormGroup;
+  public myForm: UntypedFormGroup;
   public idHero: any;
   public action = 'Crear'
   public imgSrc = '../../../assets/img/new-hero.jpeg'
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private heroeService: HeroesService,
     private snackBar: MatSnackBar,
     private route: Router,
