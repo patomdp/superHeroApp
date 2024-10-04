@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "superheroApp:build:production"
+              "buildTarget": "superheroApp:build:production"
             },
             "development": {
-              "browserTarget": "superheroApp:build:development"
+              "buildTarget": "superheroApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "superheroApp:build"
+            "buildTarget": "superheroApp:build"
           }
         },
         "test": {
