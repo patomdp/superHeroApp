@@ -13,7 +13,7 @@ interface Genders {
 @Component({
   selector: 'app-add-edit-hero',
   templateUrl: './add-edit-hero.component.html',
-  styleUrls: ['./add-edit-hero.component.css']
+  styleUrls: ['./add-edit-hero.component.scss']
 })
 export class AddEditHeroComponent implements OnInit {
 

@@ -1,0 +1,15 @@
+.edit-heroes-container {
+    @apply flex justify-center m-4 gap-4;
+}
+
+.button-row {
+    @apply flex justify-between;
+}
+
+.img-hero {
+    @apply max-w-[400px] self-center rounded-2xl;
+}
+
+.toUppercase {
+    @apply capitalize;
+}

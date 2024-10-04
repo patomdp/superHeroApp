@@ -1,15 +1,11 @@
 <div class="edit-heroes-container">
-    
     <div class="form-group">
-        
         <h2>{{ action }} Héroe</h2>
-
         <form action="" [formGroup]="myForm" autocomplete="off">
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Nombre</mat-label>
-                    <!-- <strong class="mda-form-msg"> *</strong> -->
-                    <input matInput formControlName="nombreCompleto" placeholder="Agregar nombre" class="toUppercase" >
+                    <input matInput formControlName="nombreCompleto" placeholder="Agregar nombre" class="toUppercase">
                     <mat-icon matSuffix>badge</mat-icon>
                     <mat-hint
                         *ngIf="myForm.get('nombreCompleto')?.hasError('required') && myForm.get('nombreCompleto')?.touched"
@@ -25,7 +21,6 @@
             </div>
             <mat-form-field appearance="outline">
                 <mat-label>Género</mat-label>
-                <!-- <strong class="mda-form-msg"> *</strong> -->
                 <mat-icon matSuffix>transgender</mat-icon>
                 <mat-hint *ngIf="myForm.get('genero')?.hasError('required') && myForm.get('genero')?.touched"
                     class="mda-form-msg">
@@ -40,7 +35,6 @@
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Raza</mat-label>
-                    <!-- <strong class="mda-form-msg"> *</strong> -->
                     <input matInput formControlName="raza" class="toUppercase" placeholder="Agregar raza">
                     <mat-icon matSuffix>groups_3</mat-icon>
 
@@ -53,7 +47,6 @@
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Color de ojos</mat-label>
-                    <!-- <strong class="mda-form-msg"> *</strong> -->
                     <input matInput formControlName="colorOjos" class="toUppercase" placeholder="Agregar raza">
                     <mat-icon matSuffix>visibility</mat-icon>
                     <mat-hint *ngIf="myForm.get('colorOjos')?.hasError('required') && myForm.get('colorOjos')?.touched"
@@ -65,7 +58,6 @@
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Color de pelo</mat-label>
-                    <!-- <strong class="mda-form-msg"> *</strong> -->
                     <input matInput formControlName="colorPelo" class="toUppercase" placeholder="Agregar raza">
                     <mat-icon matSuffix>face_5</mat-icon>
                     <mat-hint *ngIf="myForm.get('colorPelo')?.hasError('required') && myForm.get('colorPelo')?.touched"
@@ -82,8 +74,5 @@
                 [disabled]="myForm.invalid">Aceptar</button>
         </div>
     </div>
-   
-        <img class="img-hero" [src]="imgSrc" alt="new hero image">   
-    
-
+    <img class="img-hero" [src]="imgSrc" alt="new hero image">
 </div>

@@ -1,0 +1,7 @@
+.header-container {
+    @apply flex justify-between;
+}
+
+.list-heroes-container {
+    @apply flex flex-col justify-center gap-4 max-w-[600px] my-4 mx-auto;
+}

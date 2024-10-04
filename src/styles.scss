@@ -7,6 +7,7 @@
     --red: #f44336; 
     --green: #4CAF50;
     --blue: #1878B0;
+    --yellow: #ffc107;
 }
   
 
@@ -17,44 +18,39 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 app-root {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @apply h-full flex flex-col justify-between;
 }
 
 simple-snack-bar span {
-    margin: auto;
-    text-align: center;
+    @apply m-auto text-center;
 }
 
 .mda-form-msg{
-    color: var(--red);
+    @apply text-[var(--red)];
 }
 
 .mat-snack-bar-container{
-    background-color: var(--green);
-    color: black;
+    @apply bg-[var(--green)] text-black;
 }
 
 table {
-    width: 100%;
+    @apply w-full;
 }
 
 mat-form-field {
-    font-size: 1em;
+    @apply text-base;
 }
 
 .delete {
-    color: var(--red);
+    @apply text-[var(--red)];
 }
 
 .edit {
-    color: var(--blue);
+    @apply text-[var(--blue)];
 }
 
 .pointer {
-    cursor: pointer;
+    @apply cursor-pointer;
 }
 
 .pointer:hover {

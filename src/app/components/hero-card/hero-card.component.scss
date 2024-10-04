@@ -1,8 +1,7 @@
 .example-card {
-    max-width: 400px;
+  @apply max-w-[400px];
   }
   
-  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
   .example-header-image {
     background-image: url('https://www.superherodb.com/pictures2/portraits/10/100/639.jpg');
     background-size: cover;

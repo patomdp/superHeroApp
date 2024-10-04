@@ -1,0 +1,23 @@
+.footer {
+  @apply flex p-4 text-center justify-center text-white bg-[var(--blue)];
+    &-content {
+      @apply flex justify-between items-center gap-4;
+  
+      p {
+        @apply m-0;
+      }
+  
+      .social-icons a {
+        @apply text-white no-underline my-0 mx-2;
+  
+        mat-icon {
+          @apply text-2xl;
+        }
+  
+        &:hover {
+          @apply text-[var(--yellow)];
+        }
+      }
+    }
+  }
+  

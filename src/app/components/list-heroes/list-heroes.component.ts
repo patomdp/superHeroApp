@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-list-heroes',
   templateUrl: './list-heroes.component.html',
-  styleUrls: ['./list-heroes.component.css']
+  styleUrls: ['./list-heroes.component.scss']
 })
 export class ListHeroesComponent implements AfterViewInit  {
 
