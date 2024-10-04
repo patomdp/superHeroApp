@@ -1,4 +1,9 @@
-span{
+mat-toolbar{
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
     margin: auto;
     text-align: center;
 }

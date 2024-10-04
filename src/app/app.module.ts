@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 // Angular Components
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { ConfirmationMessageComponent } from './components/shared/confirmation-m
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AngularMaterialModule } from './components/shared/angular-material/angular-material.module';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
+import { FooterComponent } from "./components/footer/footer.component";
 
 
 @NgModule({
@@ -31,8 +33,10 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    ReactiveFormsModule
-    ],
+    ReactiveFormsModule,
+    FooterComponent,
+    MatIconModule,
+],
   providers: [],
   bootstrap: [AppComponent]
 })

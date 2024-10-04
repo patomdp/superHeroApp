@@ -9,6 +9,6 @@
     justify-content: center;
     gap: 1em;
     max-width: 600px;
-    margin: auto;
-    margin-top: 1em;
+    margin: 1em auto;
+    /* margin-top: 1em; */
 }

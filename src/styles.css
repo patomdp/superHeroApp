@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     --red: #f44336; 
     --green: #4CAF50;
@@ -11,6 +15,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-paginator-container{
     justify-content: center !important;
 }
+
+app-root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 simple-snack-bar span {
     margin: auto;
     text-align: center;
