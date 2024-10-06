@@ -34,6 +34,10 @@ jobs:
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.OS }}-node-
+            
+      # Instala una versión específica de Angular CLI
+      - name: Install specific Angular CLI version
+        run: npm install -g @angular/cli@16.2.10  # Forzamos la versión 16.2.10 de Angular CLI
 
       # Instala las dependencias
       - name: Install dependencies
