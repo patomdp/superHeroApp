@@ -1,7 +1,11 @@
 # SuperheroApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
-Updated to Angular: 18.2.7
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) initially in version 12.1.3.
+**Updated** to Angular: 18.2.7
+
+## App Structure
+
+![image](src/assets/img/structure-flow.png)
 
 ## Install Dependencies
 
