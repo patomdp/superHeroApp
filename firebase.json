@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/superheroApp",
+    "public": "dist/superheroApp/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
