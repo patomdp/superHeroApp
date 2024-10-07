@@ -2,7 +2,7 @@
   "name": "superhero-app",
   "version": "1.0.0",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.19.0"
   },
   "scripts": {
     "ng": "ng",
@@ -23,8 +23,7 @@
     "@angular/platform-browser": "^18.2.7",
     "@angular/platform-browser-dynamic": "^18.2.7",
     "@angular/router": "^18.2.7",
-    "node": "^16.13.0",
-    "rxjs": "~6.6.0",
+    "rxjs": "~6.6.7",
     "tslib": "^2.2.0",
     "zone.js": "~0.14.10"
   },
