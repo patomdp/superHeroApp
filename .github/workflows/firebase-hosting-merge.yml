@@ -1,61 +1,38 @@
 name: CI - Angular Build and Firebase Deploy
-
 on:
   push:
     branches:
       - master
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Actualizado a la versión v4
+        uses: actions/checkout@v4
 
-      # Configura Node.js v18.19
       - name: Set up Node.js
-        uses: actions/setup-node@v4  # Actualizado a la versión v4
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.19'
+          node-version: '18.19.1'
+          cache: 'npm'
 
-      # Verifica que Node.js esté correctamente configurado
       - name: Check Node.js version
-        run: node -v
+        run: |
+          node -v
+          npm -v
 
-      # Limpia la caché de node_modules para evitar conflictos
-      - name: Clean npm cache
-        run: npm cache clean --force
-
-      # Configura la caché de npm
-      - name: Cache node modules
-        uses: actions/cache@v4  # Actualizado a la versión v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            
-      # Instala una versión específica de Angular CLI
-      - name: Install specific Angular CLI version
-        run: npm install -g @angular/cli@16.2.10  # Forzamos la versión 16.2.10 de Angular CLI
-
-      # Instala las dependencias
       - name: Install dependencies
-        run: npm ci  # Usamos 'npm ci' para garantizar que se usen las dependencias exactas
+        run: npm ci
 
-      # Limpia cualquier archivo previo en el directorio de salida antes de la build
-      - name: Clean dist directory
-        run: rm -rf dist  # Esto asegura que no haya restos de builds anteriores
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli@18.2.7
 
-      # Construye la app de Angular
       - name: Build Angular app
-        run: npx ng build --configuration production  # Asegúrate de que se esté usando 'npx'
+        run: npm run build -- --configuration production
 
-      # Instala Firebase CLI para el despliegue
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
-      # Despliega a Firebase Hosting
       - name: Deploy to Firebase
         run: firebase deploy --only hosting --token "$FIREBASE_TOKEN"
         env:
